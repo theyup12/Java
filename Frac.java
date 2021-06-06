@@ -18,30 +18,30 @@ public class Frac {
 class Fraction{
     private int top;
 	private int bottom;
-	Fraction(){
+	public Fraction(){
 		top = 0;
 		bottom = 0;
 	}
-	Fraction(int top, int bottom){
+	public Fraction(int top, int bottom){
 			this.top = top;
 			this.bottom = bottom; 
 			simp();
 	}
 
-	void print(){
+	public void print(){
 		if(top != bottom){
 			System.out.println(top + "/" + bottom);
 		}else{
 			System.out.println(top);
 		}
 	}
-	Fraction multiply(Fraction b){
+	public Fraction multiply(Fraction b){
 		int new_top = this.top * b.top;
 		int new_bottom = this.bottom * b.bottom;
 		return new Fraction(new_top, new_bottom);
 	}
 
-	Fraction plus(Fraction b){
+	public Fraction plus(Fraction b){
 		Fraction new_frac = new Fraction();
 		if(this.bottom != b.bottom){
 			int new_top = this.top * b.bottom;

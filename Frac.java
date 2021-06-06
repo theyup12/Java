@@ -16,20 +16,16 @@ public class Frac {
 }
 
 class Fraction{
-    int top;
-	int bottom;
+    private int top;
+	private int bottom;
 	Fraction(){
 		top = 0;
 		bottom = 0;
 	}
 	Fraction(int top, int bottom){
-		if(bottom % top == 0 || top % bottom == 0){
-			this.top = top / top;
-			this.bottom = bottom / top;
-		}else{
 			this.top = top;
 			this.bottom = bottom; 
-		}
+			simp();
 	}
 
 	void print(){
@@ -57,5 +53,16 @@ class Fraction{
 			new_frac = new Fraction(this.top + b.top, this.bottom);
 		}
 		return new_frac;
+	}
+	private void simp(){
+		int gcd = gcd(top, bottom);
+		if(gcd != 1){
+			this.top = top / gcd;
+			this.bottom = bottom / gcd;
+		}
+	}
+	private int gcd(int a, int b){
+		if(b == 0){return a;}
+		return gcd(b, a%b);
 	}
 }
